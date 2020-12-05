@@ -7,15 +7,12 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class MainTest {
 
     private static Forest forest;
 
     @BeforeAll
-    static void setUp()
-    {
+    static void setUp() {
         forest = Unmarshaller.getForest(MainTest.class.getResourceAsStream("testInput.txt"));
     }
 
@@ -28,7 +25,7 @@ class MainTest {
 
     @Test
     void multiplicationOfTreesHitAtSlopes() {
-        List<int[]> slopeList = Arrays.asList(new int[][] {{1, 1}, {3, 1}, {5, 1}, {7, 1}, {1, 2}});
+        List<int[]> slopeList = Arrays.asList(new int[][]{{1, 1}, {3, 1}, {5, 1}, {7, 1}, {1, 2}});
         Assertions.assertEquals(336, Main.multiplicationOfTreesHitAtSlopes(forest, slopeList));
     }
 }
