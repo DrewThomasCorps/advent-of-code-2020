@@ -19,13 +19,13 @@ public class PassportScanner {
         if (!passportIsValid(passport)) {
             return false;
         }
-        if (!isYearBetweenDates(passport.getField("byr"), 1920, 2002)) {
+        if (isYearOutsideDates(passport.getField("byr"), 1920, 2002)) {
             return false;
         }
-        if (!isYearBetweenDates(passport.getField("iyr"), 2010, 2020)) {
+        if (isYearOutsideDates(passport.getField("iyr"), 2010, 2020)) {
             return false;
         }
-        if (!isYearBetweenDates(passport.getField("eyr"), 2020, 2030)) {
+        if (isYearOutsideDates(passport.getField("eyr"), 2020, 2030)) {
             return false;
         }
         String height = passport.getField("hgt");
@@ -43,14 +43,14 @@ public class PassportScanner {
         return pidIsValid(passport.getField("pid"));
     }
 
-    private boolean isYearBetweenDates(String year, int minimum, int maximum) {
+    private boolean isYearOutsideDates(String year, int minimum, int maximum) {
         Pattern yearPattern = Pattern.compile("[\\d]{4}");
         Matcher yearMatcher = yearPattern.matcher(year);
         if (!yearMatcher.matches()) {
-            return false;
+            return true;
         }
         int yearInteger = Integer.parseInt(year);
-        return numberIsBetweenValues(yearInteger, minimum, maximum);
+        return !numberIsBetweenValues(yearInteger, minimum, maximum);
     }
 
     private boolean numberIsBetweenValues(int number, int minimum, int maximum) {

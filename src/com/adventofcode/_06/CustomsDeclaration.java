@@ -1,9 +1,7 @@
 package com.adventofcode._06;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 public class CustomsDeclaration {
     private final Map<Integer, Integer> questionsCountMap = new HashMap<>();

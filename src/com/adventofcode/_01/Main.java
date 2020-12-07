@@ -45,8 +45,7 @@ public class Main {
         return null;
     }
 
-    private static void setInput()
-    {
+    private static void setInput() {
         Scanner scanner = new Scanner(Main.class.getResourceAsStream("input.txt"));
         while (scanner.hasNextLine()) {
             Integer data = scanner.nextInt();
@@ -54,8 +53,7 @@ public class Main {
         }
     }
 
-    private static List<Integer> getInput()
-    {
+    private static List<Integer> getInput() {
         if (input.size() == 0) {
             setInput();
         }

@@ -13,7 +13,7 @@ public class Policy {
 
     Boolean stringIsValid(String string) {
         int charCount = 0;
-        for (char stringCharacter: string.toCharArray()) {
+        for (char stringCharacter : string.toCharArray()) {
             if (stringCharacter == policyCharacter) {
                 charCount++;
             }

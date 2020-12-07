@@ -27,7 +27,7 @@ public class Seat {
     private int getBinarySpacePartition(List<Boolean> shouldTakeUppers) {
         int min = 0;
         int max = (int) Math.pow(2, shouldTakeUppers.size()) - 1;
-        for (Boolean shouldTakeUpper: shouldTakeUppers) {
+        for (Boolean shouldTakeUpper : shouldTakeUppers) {
             if (shouldTakeUpper) {
                 min = (int) Math.ceil(((min + max) / 2.0));
             } else {

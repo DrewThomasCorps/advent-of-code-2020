@@ -24,7 +24,7 @@ public class Main {
         List<Seat> sortedSeats = seats.stream().sorted(Comparator.comparingInt(Seat::getId))
                 .collect(Collectors.toList());
         Seat previousSeat = sortedSeats.get(0);
-        for (Seat currentSeat: sortedSeats.subList(1, sortedSeats.size())) {
+        for (Seat currentSeat : sortedSeats.subList(1, sortedSeats.size())) {
             if (currentSeat.getId() - previousSeat.getId() == 2) {
                 return currentSeat.getId() - 1;
             }
