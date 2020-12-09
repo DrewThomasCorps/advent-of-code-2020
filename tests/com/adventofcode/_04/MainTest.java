@@ -7,14 +7,12 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class MainTest {
     private static List<Passport> passports;
     private static PassportScanner scanner;
 
     @BeforeAll
-    static void setUp(){
+    static void setUp() {
         passports = Unmarshaller.getPassports(MainTest.class.getResourceAsStream("testInput.txt"));
         scanner = new PassportScanner(Arrays.asList("byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"));
     }
