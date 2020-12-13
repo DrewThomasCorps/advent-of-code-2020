@@ -5,8 +5,8 @@ public class Main {
         BusStop busStop = Unmarshaller.getBusStop(
                 Main.class.getResourceAsStream("input.txt")
         );
-        System.out.printf("Part 1: %1$,.0f%n", getBusIdMultipliedByWaitedMinutes(busStop));
-        System.out.printf("Part 2: %1$,.0f%n", busStop.getSequentialFirstBusDepartureTime());
+        System.out.printf("Part 1: %1$.0f%n", getBusIdMultipliedByWaitedMinutes(busStop));
+        System.out.printf("Part 2: %1$.0f%n", busStop.getSequentialFirstBusDepartureTime());
     }
 
     static double getBusIdMultipliedByWaitedMinutes(BusStop busStop) {

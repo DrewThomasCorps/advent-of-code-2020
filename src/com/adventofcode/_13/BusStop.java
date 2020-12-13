@@ -28,19 +28,19 @@ public class BusStop {
     }
 
     public double getSequentialFirstBusDepartureTime() {
-        double startTime = 0;
-        double currentPeriodLength = 1;
+        long startTime = 0;
+        long currentPeriodLength = 1;
         int timeAfterFirstBus = 0;
         for (Bus bus : buses) {
             timeAfterFirstBus += bus.getTimeAfterPreviousBus();
-            double periodStart = timeWhenNumIsXGreaterThanNumAfterTime(
+            long periodStart = timeWhenNumIsXGreaterThanNumAfterTime(
                     bus.getLoopTime(),
                     currentPeriodLength,
                     startTime,
                     timeAfterFirstBus,
                     startTime
-                    );
-            double periodEnd = timeWhenNumIsXGreaterThanNumAfterTime(
+            );
+            long periodEnd = timeWhenNumIsXGreaterThanNumAfterTime(
                     bus.getLoopTime(),
                     currentPeriodLength,
                     startTime,
@@ -53,12 +53,16 @@ public class BusStop {
         return startTime;
     }
 
-    public double timeWhenNumIsXGreaterThanNumAfterTime(double num1Multiple, double num2Multiple, double num2Offset, double x, double minTime) {
-        double num2 = (Math.ceil(minTime/ num2Multiple) * num2Multiple) + num2Offset;
-        double num1 = Math.ceil(num2/ num1Multiple) * num1Multiple;
+    public long timeWhenNumIsXGreaterThanNumAfterTime(long num1Multiple, long num2Multiple,
+                                                      long num2Offset, long x, long minTime) {
+        long num2 = (long) (Math.ceil((minTime / (double) num2Multiple)) * num2Multiple + num2Offset);
+        long num1 = (long) (Math.ceil((num2 / (double) num1Multiple))) * num1Multiple;
         while (num1 - num2 != x) {
             num2 += num2Multiple;
-            num1 = Math.ceil(num2/ num1Multiple) * num1Multiple;
+            num1 = (long) (Math.ceil((num2 / (double) num1Multiple))) * num1Multiple;
+            while ((num1 - x) < num2) {
+                num1 += num1Multiple;
+            }
         }
         return num2;
     }
