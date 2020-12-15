@@ -15,7 +15,7 @@ public class ModernComputer {
         ModernMask currentMask = new ModernMask();
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
-            if(line.contains("mask = ")) {
+            if (line.contains("mask = ")) {
                 currentMask = new ModernMask(line.substring("mask = ".length()));
             } else {
                 Pattern memoryPattern = Pattern.compile("mem\\[([\\d]+)] = ([\\d]+)");
@@ -24,7 +24,7 @@ public class ModernComputer {
                     ExtendedInteger location = new ExtendedInteger(Long.parseLong(matcher.group(1)));
                     long value = Long.parseLong(matcher.group(2));
                     location.applyMask(new Mask(currentMask.getPlaceToBitMap()));
-                    for (Mask possibleMask: currentMask.getAllPossibleMasks()) {
+                    for (Mask possibleMask : currentMask.getAllPossibleMasks()) {
                         ExtendedInteger nextLocation = new ExtendedInteger(location.getValue());
                         nextLocation.applyMask(possibleMask);
                         addValueToMemory(nextLocation.getValue(), value);

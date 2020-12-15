@@ -15,7 +15,7 @@ public class ExtendedInteger {
 
     void applyMask(Mask mask) {
         Map<Integer, Character> placeToBitMap = mask.getPlaceToBitMap();
-        for (Integer place: placeToBitMap.keySet()) {
+        for (Integer place : placeToBitMap.keySet()) {
             binary.setCharAt(place, placeToBitMap.get(place));
         }
     }

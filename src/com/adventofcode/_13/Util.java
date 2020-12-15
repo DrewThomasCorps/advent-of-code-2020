@@ -5,7 +5,7 @@ import java.util.List;
 public class Util {
     static double getLeastCommonMultiple(List<Double> numbers) {
         double previousLeastCommonMultiple = 1;
-        for (Double number: numbers) {
+        for (Double number : numbers) {
             previousLeastCommonMultiple = getLeastCommonMultiple(previousLeastCommonMultiple, number);
         }
         return previousLeastCommonMultiple;

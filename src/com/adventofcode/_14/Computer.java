@@ -15,7 +15,7 @@ public class Computer {
         Mask currentMask = new Mask(new HashMap<>());
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
-            if(line.contains("mask = ")) {
+            if (line.contains("mask = ")) {
                 currentMask = new Mask(line.substring("mask = ".length()));
             } else {
                 Pattern memoryPattern = Pattern.compile("mem\\[([\\d]+)] = ([\\d]+)");
