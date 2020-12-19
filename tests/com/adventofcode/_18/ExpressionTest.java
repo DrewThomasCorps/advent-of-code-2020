@@ -2,9 +2,7 @@ package com.adventofcode._18;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.stream.Stream;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ExpressionTest {
 
