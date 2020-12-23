@@ -3,6 +3,7 @@ package com.adventofcode._23;
 import java.util.HashMap;
 import java.util.Map;
 
+// While it is a doubly linked list, looking back I only needed to implement a circular linked list
 public class DoublyLinkedList {
     private Node head = null;
     private final Map<Integer, Node> nodeMap = new HashMap<>();
